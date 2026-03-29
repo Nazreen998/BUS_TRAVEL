@@ -80,7 +80,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navmenu">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="index1.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
           <li class="nav-item"><a class="nav-link active" href="route1.html">Routes</a></li>
           <li class="nav-item"><a class="nav-link" href="about1.html">About</a></li>
           <li class="nav-item"><a class="nav-link" href="contact1.html">Contact</a></li>
@@ -196,6 +196,41 @@
       });
     });
   </script>
+<script>
+const API = "https://bus-travel-backend.onrender.com";
+
+async function loadRoutes() {
+  try {
+    const res = await fetch(`${API}/routes`);
+    const data = await res.json();
+
+    console.log(data); // test
+
+    const container = document.querySelector(".row");
+    container.innerHTML = "";
+
+    data.forEach(route => {
+      container.innerHTML += `
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <h5>${route.from} → ${route.to}</h5>
+              <p>₹${route.price}</p>
+              <button class="btn btn-custom">Book</button>
+            </div>
+          </div>
+        </div>
+      `;
+    });
+
+  } catch (err) {
+    console.error(err);
+    alert("Backend connect aagala ❌");
+  }
+}
+
+loadRoutes();
+</script>
 
 </body>
 </html>
