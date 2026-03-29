@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Bookings</title>
+  <style>
+    body {
+      background: #0f2027;
+      color: white;
+      font-family: Poppins;
+      padding: 30px;
+    }
+    .card {
+      background: #203a43;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 10px;
+    }
+    button {
+      background: #FFD700;
+      border: none;
+      padding: 6px 14px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .cancelled { color: red; }
+    .confirmed { color: #00ffcc; }
+    .pending { color: orange; }
+  </style>
+</head>
+
+<body>
+<h2> My Booking History</h2>
+<div id="list"></div>
+
+<script>
+const API = "http://127.0.0.1:8000";
+const username = localStorage.getItem("username");
+
+if (!username) {
+  window.location.href = "login1.html";
+}
+
+async function loadHistory() {
+  const res = await fetch(`${API}/booking-history`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ username })
+  });
+
+  const data = await res.json();
+  const div = document.getElementById("list");
+
+  data.forEach(b => {
+    const el = document.createElement("div");
+    el.className = "card";
+
+    let statusClass =
+      b.status === "CONFIRMED" ? "confirmed" :
+      b.status === "CANCELLED" ? "cancelled" : "pending";
+
+    el.innerHTML = `
+      <p><b>Route:</b> ${b.route}</p>
+      <p><b>Seats:</b> ${b.seats.join(", ")}</p>
+      <p><b>Status:</b> <span class="${statusClass}">${b.status}</span></p>
+      <p><b>Date:</b> ${new Date(b.createdAt).toLocaleString()}</p>
+      ${
+        b.status !== "CANCELLED"
+        ? `<button onclick="cancelTicket('${b._id}')">Cancel Ticket</button>`
+        : ""
+      }
+    `;
+
+    div.appendChild(el);
+  });
+}
+
+async function cancelTicket(id) {
+  if (!confirm("Are you sure to cancel ticket?")) return;
+
+  const res = await fetch(`${API}/cancel-booking`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ booking_id: id, username })
+  });
+
+  const data = await res.json();
+  alert(data.message);
+  location.reload();
+}
+
+loadHistory();
+</script>
+</body>
+</html>

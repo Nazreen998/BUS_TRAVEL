@@ -1,0 +1,141 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+.logo {
+      position:absolute;   /* Place it at a fixed position */
+      top: 10px;            /* Distance from the top */
+      left: 10px;           /* Distance from the left */
+      width: 65px;         /* Logo width */
+      height: 50px;        /* Keep aspect ratio */
+      image-rendering: auto;
+    }
+
+header {
+  position: sticky;
+  top: 0cm;
+  background: indigo;
+  color: white;
+  padding: 15px;
+  text-align: center;
+}
+
+nav {
+  position: fixed;       /* Stays at the top */
+   background-color: green;  
+  top: 104px;
+    left: 0;
+    width: 98%;           /* Full width */
+    color: black;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-shrink: 2; width: 100%;
+    z-index: 900;     
+  text-align: center;
+ 
+}
+
+nav a {
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+h2 {
+  color:purple;
+}
+
+label {
+  display: block;
+  margin: 10px 0 5px;
+}
+
+input, select {
+  width: 50%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background: indigo;
+  color: white;
+  text-align: center;
+  border-radius: 50px;
+  width: 100%;
+  height: 60px;
+}
+.signup-box
+{
+  background-repeat: no-repeat;    
+  background-position: right;
+  font-family: Arial, Helvetica, sans-serif;
+  font-display: blue;
+}
+    .ticket-box 
+    {
+       background:#fff; border:1px solid #ddd; padding:20px; width:400px; margin:auto; border-radius:8px; }
+    h2 s
+     { color:#2c3e50; text-align:center; }
+    .details 
+    { 
+      margin:15px 0;
+     }
+    .details p 
+    { 
+      margin:5px 0; 
+    }
+    .container
+    {
+      width: 400px;
+      margin: 50px auto;
+      text-align: left;
+      padding: 20px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+    }
+    h2 n {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    input, select {
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .form-group-inline {         /* bus layout code */
+      display: flex;
+      justify-content: space-between;
+    }
+    .form-group-inline input {
+      width: 48%;
+    }
+  
+    #about{
+      text-decoration: none;
+      justify-self: center;
+      width: 80%;
+
+    }
+  

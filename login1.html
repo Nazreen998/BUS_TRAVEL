@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | Happy Journey</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <style>
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      font-family: 'Poppins', sans-serif;
+      color: #fff;
+      margin: 0;
+    }
+
+    nav {
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(8px);
+    }
+    .navbar-brand {
+      font-weight: bold;
+      color: #FFD700 !important;
+    }
+    .btn-custom {
+      background: #FFD700;
+      color: #000;
+      font-weight: 600;
+      border-radius: 30px;
+      transition: 0.3s;
+    }
+    .btn-custom:hover {
+      background: #00BFA6;
+      color: white;
+      transform: scale(1.05);
+    }
+
+    .hero {
+      text-align: center;
+      padding-top: 90px;
+      background: rgba(255, 255, 255, 0.05);
+    }
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: bold;
+      color: #FFD700;
+      text-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+    }
+
+    .login-container {
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(10px);
+      padding: 40px 50px;
+      border-radius: 15px;
+      box-shadow: 0 0 25px rgba(255, 215, 0, 0.2);
+      text-align: center;
+      width: 350px;
+      margin: 0 auto;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .login-container h2 {
+      color: #FFD700;
+      margin-bottom: 25px;
+      font-size: 28px;
+      text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    }
+
+    .login-container input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 8px;
+      outline: none;
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      font-size: 15px;
+      transition: 0.3s;
+    }
+
+    .login-container input::placeholder {
+      color: #bbb;
+    }
+
+    .login-container input:focus {
+      background: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+    }
+
+    .login-container button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 15px;
+      background: linear-gradient(90deg, #FFD700, #ffb400);
+      border: none;
+      border-radius: 8px;
+      color: #000;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .login-container button:hover {
+      box-shadow: 0 0 15px #FFD700;
+      transform: scale(1.05);
+    }
+
+    .login-container p {
+      margin-top: 20px;
+      color: #fff;
+      font-size: 14px;
+    }
+
+    .login-container a {
+      color: #FFD700;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .login-container a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      background: rgba(0, 0, 0, 0.8);
+      text-align: center;
+      padding: 15px 0;
+      color: #ccc;
+      margin-top: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">HAPPY JOURNEY</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navmenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="index1.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="route1.html">Routes</a></li>
+          <li class="nav-item"><a class="nav-link active" href="about1.html">About</a></li>
+          <li class="nav-item"><a class="nav-link active" href="contact1.html">Contact</a></li>
+          <li class="nav-item"><a class="nav-link active" href="history.html">My Bookings</a></li>
+          <li class="nav-item"><a class="btn btn-custom ms-2" href="login1.html">Login</a></li>
+          <li class="nav-item"><a class="nav-link active" href="reset1.html">Reset Password</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero" data-aos="fade-down">
+    <h1>🚌 Who We Are 🚌</h1>
+  </section>
+
+  <div class="login-container" data-aos="zoom-in">
+    <h2>Login Page</h2>
+    <form id="loginForm">
+      <input type="text" id="username" placeholder="Username" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <button type="submit">Login</button>
+    </form>
+
+    <p>Don’t have an account? <a href="new1.html">Register Now</a></p>
+  </div>
+
+  <footer>
+    © 2025 Happy Journey. All Rights Reserved.
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <script>
+    const API = "http://127.0.0.1:8000";
+    AOS.init({ duration: 1000, once: true });
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const form = document.getElementById("loginForm");
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const username = document.getElementById("username").value.trim();
+        const password = document.getElementById("password").value;
+
+        if (!username || !password) {
+          alert("Username/password empty");
+          return;
+        }
+
+        try {
+          const res = await fetch(`${API}/login`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ username, password })
+          });
+
+          const data = await res.json();
+
+          if (!res.ok) {
+            alert(data.detail || "Login failed");
+            return;
+          }
+
+          localStorage.setItem("token", data.access_token);
+          localStorage.setItem("username", data.username);
+
+          alert("Login success ✅");
+
+          // 🔥 redirect logic
+          const redirectPage = localStorage.getItem("redirectAfterLogin");
+
+          if (redirectPage) {
+            localStorage.removeItem("redirectAfterLogin");
+            window.location.href = redirectPage;
+          } else {
+            window.location.href = "index1.html";
+          }
+
+        } catch (err) {
+          alert("Backend connect aagala. Server on irukka check pannu.");
+          console.error(err);
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register | Happy Journey</title>
+
+  <!-- Bootstrap & AOS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <style>
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      font-family: 'Poppins', sans-serif;
+      color: #fff;
+      margin: 0;
+    }
+
+    /* Navbar */
+    nav {
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(8px);
+    }
+    .navbar-brand {
+      font-weight: bold;
+      color: #FFD700 !important;
+    }
+    .btn-custom {
+      background: #FFD700;
+      color: #000;
+      font-weight: 600;
+      border-radius: 30px;
+      transition: 0.3s;
+    }
+    .btn-custom:hover {
+      background: #00BFA6;
+      color: white;
+      transform: scale(1.05);
+    }
+
+    /* Hero Section - Register */
+    .hero {
+      text-align: center;
+      padding: 120px 20px 60px;
+      background: rgba(255, 255, 255, 0.05);
+    }
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: bold;
+      color: #FFD700;
+      text-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+      margin-bottom: 20px;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      color: #eee;
+      margin-bottom: 40px;
+    }
+
+    /* Register Form Box */
+    .register-container {
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(10px);
+      padding: 40px 50px;
+      border-radius: 15px;
+      box-shadow: 0 0 25px rgba(255, 215, 0, 0.2);
+      text-align: center;
+      width: 400px;
+      margin: 0 auto;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .register-container input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 8px;
+      outline: none;
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      font-size: 15px;
+      transition: 0.3s;
+    }
+
+    .register-container input::placeholder {
+      color: #bbb;
+    }
+
+    .register-container input:focus {
+      background: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+    }
+
+    .register-container button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 15px;
+      background: linear-gradient(90deg, #FFD700, #ffb400);
+      border: none;
+      border-radius: 8px;
+      color: #000;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .register-container button:hover {
+      box-shadow: 0 0 15px #FFD700;
+      transform: scale(1.05);
+    }
+
+    .register-container p {
+      margin-top: 20px;
+      color: #fff;
+      font-size: 14px;
+    }
+
+    .register-container a {
+      color: #FFD700;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    footer {
+      background: rgba(0, 0, 0, 0.8);
+      text-align: center;
+      padding: 15px 0;
+      color: #ccc;
+      margin-top: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">HAPPY JOURNEY</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navmenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index1.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="route1.html">Routes</a></li>
+          <li class="nav-item"><a class="nav-link" href="about1.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact1.html">Contact</a></li>
+          <li class="nav-item"><a class="btn btn-custom ms-2" href="login1.html">Login</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" data-aos="fade-down">
+    <h1>🚌 Create Your Account 🚌</h1>
+    <p>Join Happy Journey today and start exploring routes, booking tickets, and more!</p>
+
+    <div class="register-container" data-aos="zoom-in">
+      <form id="registerForm">
+        <input type="text" id="name" placeholder="Full Name" required>
+        <input type="email" id="email" placeholder="Email Address" required>
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+        <button type="submit">Register</button>
+        <p id="errorMsg" class="text-danger mt-2"></p>
+      </form>
+      <p>Already have an account? <a href="login1.html">Login Here</a></p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 Happy Journey. All Rights Reserved.
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+ <script>
+const API = "http://127.0.0.1:8000";
+
+AOS.init({ duration: 1000, once: true });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("registerForm");
+  const errorMsg = document.getElementById("errorMsg");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    errorMsg.innerText = "";
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value;
+    const confirmPassword = document.getElementById("confirmPassword").value;
+
+    if (!name || !email || !username || !password || !confirmPassword) {
+      errorMsg.innerText = "❌ All fields fill pannu";
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      errorMsg.innerText = "❌ Passwords do not match!";
+      return;
+    }
+
+    try {
+      const res = await fetch(`${API}/register`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, username, password })
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        errorMsg.innerText = data.detail || "Register failed";
+        return;
+      }
+
+      alert("🎉 Registration successful! Now login pannu ✅");
+      window.location.href = "login1.html";
+
+    } catch (err) {
+      errorMsg.innerText = "❌ Backend connect aagala. Server on irukka check pannu.";
+      console.error(err);
+    }
+  });
+});
+</script>
+</body>
+</html>

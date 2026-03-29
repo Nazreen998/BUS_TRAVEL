@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Happy Journey</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
+
+  <style>
+    body {
+      overflow-x: hidden;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    }
+
+    .navbar {
+      background: linear-gradient(90deg, #141e30, #243b55);
+    }
+
+    .hero {
+      color: #FFD700;
+      background: rgba(255, 255, 255, 0.05);
+      padding-top: 70px;
+      text-align: center;
+      height: 30vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .hero h1 {
+      font-size: 50px;
+      font-weight: 800;
+      text-shadow: 2px 2px 10px #000;
+    }
+
+    .btn-gradient {
+      background: #FFD700;
+      border: none;
+      color: black;
+      font-weight: 600;
+      padding: 10px 30px;
+      border-radius: 50px;
+      transition: 0.3s;
+    }
+    .btn-gradient:hover {
+      transform: scale(1.1);
+      box-shadow: #00BFA6;
+    }
+
+    .contact-card {
+      background: white;
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .contact-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .contact-icon {
+      font-size: 35px;
+      color: #00b09b;
+      margin-bottom: 10px;
+    }
+
+    footer {
+      background: linear-gradient(90deg, #141e30, #243b55);
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top shadow">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">🚌 Happy Journey</a>
+      <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="index1.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="route1.html">Routes</a></li>
+          <li class="nav-item"><a class="nav-link active" href="about1.html">About</a></li>
+          <li class="nav-item"><a class="nav-link active" href="contact1.html">Contact</a></li>
+          <li class="nav-item"><a class="nav-link active" href="history.html">My Bookings</a></li>
+          <li class="nav-item"><a class="btn btn-warning ms-2" href="login1.html">Login</a></li>
+          
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero animate__animated animate__fadeIn">
+    <h1 data-aos="fade-up">Get in Touch</h1>
+    <p data-aos="fade-up" data-aos-delay="200">We’d love to hear from you anytime!</p>
+  </section>
+
+  <section class="container py-5">
+    <div class="row g-5 align-items-center">
+
+      <div class="col-md-5" data-aos="fade-right">
+        <div class="contact-card text-center">
+          <div class="contact-icon">📍</div>
+          <h5>Our Office</h5>
+          <p>123 Happy Street, Madurai, Tamil Nadu</p>
+
+          <div class="contact-icon">📞</div>
+          <h5>Phone</h5>
+          <p>+91 98765 43210</p>
+
+          <div class="contact-icon">✉️</div>
+          <h5>Email</h5>
+          <p>support@happyjourney.com</p>
+        </div>
+      </div>
+
+      <div class="col-md-7" data-aos="fade-left">
+        <div class="contact-card">
+          <h3 class="text-center mb-4 fw-bold text-success">Send Us a Message</h3>
+
+              <form id="contactForm">
+            <div class="mb-3">
+              <label class="form-label">Your Name</label>
+              <input type="text" id="name" class="form-control" placeholder="Enter your name" required>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Email Address</label>
+              <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Message</label>
+              <textarea id="message" class="form-control" rows="4" placeholder="Type your message..." required></textarea>
+            </div>
+
+            <div class="text-center">
+              <button type="submit" class="btn-gradient">Send Message</button>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Happy Journey. All Rights Reserved.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <script>
+    AOS.init({ duration: 1000 });
+  </script>
+
+  <script>
+    const API = "http://127.0.0.1:8000";
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const form = document.getElementById("contactForm");
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const message = document.getElementById("message").value.trim();
+
+        try {
+          const res = await fetch(`${API}/contact`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ name, email, message })
+          });
+
+          const data = await res.json();
+
+          if (!res.ok) {
+            alert(data.detail || "Message failed");
+            return;
+          }
+
+          alert("Message sent ✅");
+          form.reset();
+
+        } catch (err) {
+          alert("Backend connect aagala");
+          console.log(err);
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
