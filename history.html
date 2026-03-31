@@ -50,7 +50,8 @@ async function loadHistory() {
 
   const data = await res.json();
   const div = document.getElementById("list");
-
+  div.innerHTML = "";
+  
   data.forEach(b => {
     const el = document.createElement("div");
     el.className = "card";
