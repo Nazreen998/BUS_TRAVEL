@@ -126,8 +126,16 @@
     </div>
   </div>
 <script>
+
 const API = "https://bus-travel-backend.onrender.com";
 
+const travelDate = localStorage.getItem("selectedTravelDate");
+
+if (!travelDate) {
+  alert("Please select travel date first");
+  window.location.href = "route1.html";
+
+}
 const token = localStorage.getItem("token");
 const username = localStorage.getItem("username");
 const route = localStorage.getItem("selectedRoute");
@@ -151,7 +159,7 @@ let selectedSeats = [];
 let bookedSeats = [];
 
 async function loadBookedSeats() {
-  const res = await fetch(`${API}/booked-seats/${encodeURIComponent(route)}`);
+  const res = await fetch(`${API}/booked-seats/${encodeURIComponent(route)}?travel_date=${encodeURIComponent(travelDate)}`);
   const data = await res.json();
   bookedSeats = data.bookedSeats;
   renderSeats();
@@ -200,10 +208,11 @@ document.getElementById("confirmBtn").addEventListener("click", async () => {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      username,
-      route,
-      seats: selectedSeats
-    })
+  username,
+  route,
+  seats: selectedSeats,
+  travel_date: travelDate
+})
   });
 
   const data = await res.json();

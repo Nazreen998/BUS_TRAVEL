@@ -84,7 +84,7 @@
           <li class="nav-item"><a class="nav-link active" href="route1.html">Routes</a></li>
           <li class="nav-item"><a class="nav-link" href="about1.html">About</a></li>
           <li class="nav-item"><a class="nav-link" href="contact1.html">Contact</a></li>
-          <li class="nav-item"><a class="btn btn-custom ms-2" href="login1.html">Login</a></li>
+          <span id="authButtons"></span>
         </ul>
       </div>
     </div>
@@ -96,7 +96,12 @@
     <p>Choose your destination and enjoy a comfortable journey</p>
   </section>
 
-  <!-- Routes Section -->
+<div class="container mb-4 text-center">
+  <label for="travelDate" class="form-label">Select Travel Date:</label>
+  <input type="date" id="travelDate" class="form-control w-25 mx-auto">
+</div>
+  
+<!-- Routes Section -->
   <div class="container py-5">
     <div class="row g-4">
 
@@ -179,10 +184,17 @@
         btn.addEventListener("click", () => {
 
           const route = btn.getAttribute("data-route");
-          const token = localStorage.getItem("token");
+const token = localStorage.getItem("token");
+const travelDate = document.getElementById("travelDate").value;
 
-          // store selected route
-          localStorage.setItem("selectedRoute", route);
+if (!travelDate) {
+  alert("Please select travel date");
+  return;
+}
+
+// store selected route and travel date
+localStorage.setItem("selectedRoute", route);
+localStorage.setItem("selectedTravelDate", travelDate);
 
           if (!token) {
             // login pannala -> login ku anuppu
@@ -199,6 +211,38 @@
 <script>
 const API = "https://bus-travel-backend.onrender.com";
 </script>
+<script>
+function logout() {
+  localStorage.removeItem("token");
+  localStorage.removeItem("username");
+  localStorage.removeItem("bookingId");
+  localStorage.removeItem("selectedRoute");
+  localStorage.removeItem("redirectAfterLogin");
 
+  alert("Logged out successfully ✅");
+  window.location.href = "index.html";
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const authButtons = document.getElementById("authButtons");
+  if (!authButtons) return;
+
+  const token = localStorage.getItem("token");
+  const username = localStorage.getItem("username");
+
+  if (token && username) {
+    authButtons.innerHTML = `
+      <li class="nav-item"><span class="nav-link">👤 ${username}</span></li>
+      <li class="nav-item"><a class="nav-link" href="history.html">My Bookings</a></li>
+      <li class="nav-item"><button class="btn btn-custom ms-2" onclick="logout()">Logout</button></li>
+    `;
+  } else {
+    authButtons.innerHTML = `
+      <li class="nav-item"><a class="btn btn-custom ms-2" href="login1.html">Login</a></li>
+      <li class="nav-item"><a class="btn btn-custom ms-2" href="register.html">Register</a></li>
+    `;
+  }
+});
+</script>
 </body>
 </html>

@@ -51,7 +51,7 @@ async function loadHistory() {
   const data = await res.json();
   const div = document.getElementById("list");
   div.innerHTML = "";
-  
+
   data.forEach(b => {
     const el = document.createElement("div");
     el.className = "card";
@@ -63,6 +63,7 @@ async function loadHistory() {
     el.innerHTML = `
       <p><b>Route:</b> ${b.route}</p>
       <p><b>Seats:</b> ${b.seats.join(", ")}</p>
+      <p><b>Travel Date:</b> ${b.travel_date || "-"}</p>
       <p><b>Status:</b> <span class="${statusClass}">${b.status}</span></p>
       <p><b>Date:</b> ${new Date(b.createdAt).toLocaleString()}</p>
       ${
