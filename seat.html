@@ -113,7 +113,7 @@
 
   <div class="box">
     <h2 class="route-title" id="routeName">Seat Selection</h2>
-
+    <p class="text-center">📅 Travel Date: <span id="travelDateText"></span></p>
     <div class="text-center mb-3">
       <p>Choose your seats 👇</p>
     </div>
@@ -151,7 +151,7 @@ if (!route) {
 }
 
 document.getElementById("routeName").innerText = `Route: ${route}`;
-
+document.getElementById("travelDateText").innerText = travelDate;
 const seatGrid = document.getElementById("seatGrid");
 const selectedSeatsText = document.getElementById("selectedSeats");
 
